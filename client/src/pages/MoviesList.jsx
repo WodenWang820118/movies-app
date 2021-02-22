@@ -66,7 +66,7 @@ class MoviesList extends Component {
 
         await api.getAllMovies().then(movies => {
             this.setState({
-                movies: movies.data,
+                movies: movies.data.data,
                 isLoading: false,
             })
         })
@@ -122,9 +122,9 @@ class MoviesList extends Component {
         ]
 
         let showTable = true
-        // if (!movies.length) {
-        //     showTable = false
-        // }
+        if (!movies.length) {
+            showTable = false
+        }
 
         return (
             <Wrapper>
